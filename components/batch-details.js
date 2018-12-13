@@ -1,7 +1,6 @@
 import React from 'react'
 import { ScrollView, StatusBar, Dimensions, Text } from 'react-native'
 import ScrollableTabView from 'react-native-scrollable-tab-view'
-import PieChart from './pie-chart'
 import BarChart from './bar-chart'
 import { data, contributionData, pieChartData, progressChartData } from './data'
 
@@ -25,7 +24,16 @@ const chartConfigs = [
   }
 ]
 
-export default class WelcomeScreen extends React.Component {
+export default class BatchDetails extends React.Component {
+
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            label: this.props.navigation.state.params.label,
+            value: this.props.navigation.state.params.value,
+        };
+    }
 
   renderTabBar() {
     return <StatusBar />
@@ -54,25 +62,14 @@ export default class WelcomeScreen extends React.Component {
                 backgroundColor: chartConfig.backgroundColor
               }}
             >
-              <Text style={labelStyle}> FRAUD REFUND REPORT </Text>
-              <PieChart
-                data={pieChartData}
-                width={width}
-                height={height}
-                chartConfig={chartConfig}
-                accessor="batches"
-                style={graphStyle}
-                backgroundColor="transparent"
-                paddingLeft="15"
-              />
-              <Text style={labelStyle}> REFUND AMOUNT PER INDUSTRY </Text>
+              <Text style={labelStyle}>Batch Details</Text>
+              <Text style={labelStyle}>{this.state.label}</Text>
               <BarChart
                 width={width}
                 height={height}
                 data={data}
                 chartConfig={chartConfig}
                 style={graphStyle}
-                paddingLeft="15"
               />
             </ScrollView>
           )
