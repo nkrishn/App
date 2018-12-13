@@ -1,6 +1,6 @@
 // Mock data object used for LineChart and BarChart
 
-const data = {
+const BarCharData = {
   labels: ['Retail', 'RESTURANT', 'LODGING'],
   datasets: [{
     data: [
@@ -8,23 +8,16 @@ const data = {
       200,
       300,
     ]
-  },{
+  }]
+}
+
+const BarCharData1 = {
+  labels: ['Retail', 'RESTURANT', 'LODGING'],
+  datasets: [{
     data: [
-      20,
-      10,
-      4,
-      56,
-      87,
-      90
-    ]
-  },{
-    data: [
-      30,
-      90,
-      67,
-      54,
-      10,
-      2
+      550,
+      250,
+      100,
     ]
   }]
 }
@@ -88,8 +81,14 @@ const pieChartData = [
   { name: 'RESTURANT', batches: 52, color: 'red', legendFontColor: '#7F7F7F', legendFontSize: 15 },
 ]
 
+const pieChartData1 = [
+  { name: 'LODGING', batches: 28, color: 'rgba(131, 167, 234, 1)', legendFontColor: '#7F7F7F', legendFontSize: 15 },
+  { name: 'RETAIL', batches: 52, color: 'orange', legendFontColor: '#7F7F7F', legendFontSize: 15 },
+  { name: 'RESTURANT', batches: 50, color: 'red', legendFontColor: '#7F7F7F', legendFontSize: 15 },
+]
+
 // Mock data object for Progress
 
 const progressChartData = [0.4, 0.6, 0.8]
 
-export { pinpadData, data, cardData, contributionData, pieChartData, progressChartData, pinpadModelData }
+export { pinpadData, BarCharData, cardData, contributionData, pieChartData, progressChartData, pinpadModelData, pieChartData1, BarCharData1 }
