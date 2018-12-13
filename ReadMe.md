@@ -1,4 +1,4 @@
-node v8.3 - nvm
+node v11.3.0 - nvm
 
 npm install -g yarn
 
