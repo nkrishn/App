@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
-import {Platform, StyleSheet, StatusBar, Text, View} from 'react-native';
-
+import React from 'react'
+import { ScrollView, StatusBar, Dimensions, Text, View, TouchableHighlight, Platform, StyleSheet } from 'react-native'
+import ScrollableTabView from 'react-native-scrollable-tab-view'
 import { createBottomTabNavigator, createStackNavigator, createAppContainer} from 'react-navigation'
 import WelcomeScreen from './welcome-screen'
 import PinPadStatus from './pinpad-status'
@@ -76,3 +76,4 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
 });
+
