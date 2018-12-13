@@ -6,9 +6,10 @@ import { StyleSheet, Text, View, Image,
   Alert } from 'react-native';
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import  Dashboard from './components/dashboard';
+import { Dimensions } from "react-native";
 
 
-class App extends React.Component {
+class App extends React.Component { 
   constructor(props) {
     super(props);
     state = {
@@ -67,6 +68,8 @@ const AppNavigator = createStackNavigator(
 );
 
 export default createAppContainer(AppNavigator);
+const deviceWidth = Dimensions.get("window").width;
+const deviceHeight = Dimensions.get("window").height;
 
 const styles = StyleSheet.create({
   container: {
@@ -81,47 +84,49 @@ const styles = StyleSheet.create({
       backgroundColor: '#FFFFFF',
       borderRadius:5,
       borderBottomWidth: 1,
-      width:400,
-      height:55,
+      width : deviceWidth * 85 / 100,
+      
+      height: deviceHeight * 5 / 100,
       marginBottom:20,
       flexDirection: 'row',
       alignItems:'center'
   },
   inputs:{
-      height:45,
+      height: deviceHeight * 6 / 100,
       marginLeft:16,
       borderBottomColor: '#aaa',
       flex:1,
   },
   inputIcon:{
-    width:30,
-    height:30,
+    width : deviceWidth * 7 / 100,
+    height: deviceHeight * 4 / 100,
     marginLeft:15,
     justifyContent: 'center'
   },
   Logo:{
-    width: 190,
-    height:100,
+    width : deviceWidth * 50 / 100,
+    height: deviceHeight * 20 / 100,
     marginLeft: -5,
     justifyContent: 'center'
   },
   buttonContainer: {
-    height:55,
+    width : deviceWidth * 85 / 100,
+    height: deviceHeight * 5 / 100,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom:20,
-    width:400,
     borderRadius:5,
   },
 
   contactbuttonContainer: {
-    height:55,
+    width : deviceWidth * 85 / 100,
+    height: deviceHeight * 5 / 100,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom:20,
-    width:400,
+    //width:400,
     borderRadius:5,
     //marginTop: 180
   },
