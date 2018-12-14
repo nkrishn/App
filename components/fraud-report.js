@@ -5,17 +5,6 @@ import { Text as SVGText } from 'react-native-svg'
 import DateRange from './date-ranges';
 import { bardata, bardata1, piedata, piedata1} from './data'
 
-const chartConfigs = [
-  {
-    backgroundColor: '#ffffff',
-    backgroundGradientFrom: '#e53935',
-    backgroundGradientTo: '#ef5350',
-    color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-    style: {
-      borderRadius: 16
-    }
-  }
-]
 class FraudReport extends React.PureComponent {
 
   constructor() {
@@ -118,35 +107,36 @@ class FraudReport extends React.PureComponent {
     }
 
     return (
-      
-      <View style={{flex: 1, flexDirection: 'column', margin: 10 }}>
-        <Text style={styles.labelStyle}> REFUND BY INDUSTRY </Text>
-        <PieChart
-          style={{ height: 200 }}
-          valueAccessor={({ item }) => item.amount}
-          data={this.state.piedata}
-          spacing={0}
-          outerRadius={'95%'}
-        >
-          <Labels/>
-        </PieChart>
-        <View style={{flex: 1, flexDirection: 'column'}}>
-          <View style={{marginVertical: 20 }}>
-            <DateRange onChange={this.onDateRangeChange.bind(this)} styleProps={this.state}/>
+        <View style={{flex: 1, flexDirection: 'column' }}>        
+          <View style={{flex: 1.8, flexDirection: 'row' }}>
+            <View style={{flex: 1, flexDirection: 'column' }}>
+              <Text style={styles.labelStyle}> REFUND BY INDUSTRY </Text>
+              <PieChart
+                style={{ height: 180 }}
+                valueAccessor={({ item }) => item.amount}
+                data={this.state.piedata}
+                spacing={0}
+                outerRadius={'95%'}
+              >
+                <Labels/>
+              </PieChart>
+            </View>
           </View>
+          <DateRange onChange={this.onDateRangeChange.bind(this)} styleProps={this.state}/> 
           <Text style={styles.labelStyle}> REFUND AMOUNT PER INDUSTRY </Text>
-          <BarChart
-            style={{ flex: 1 }}
-            data={this.state.bardata}
-            svg={{ fill: 'rgba(134, 65, 244, 0.8)' }}
-            contentInset={{ top: 10, bottom: 10 }}
-            spacing={0.2}
-            gridMin={0}
-          >
-            <BarLabels/>
-          </BarChart>
+          <View style={{flex: 1, flexDirection: 'row'}}>
+            <BarChart
+              style={{ flex: 1 }}
+              data={this.state.bardata}
+              svg={{ fill: 'rgba(134, 65, 244, 0.8)' }}
+              contentInset={{ top: 10, bottom: 10 }}
+              spacing={0.2}
+              gridMin={0}
+            >
+              <BarLabels/>
+            </BarChart>
+          </View>
         </View>
-      </View>
     )
   }
 }
