@@ -17,12 +17,6 @@ const chartConfigs = [
       borderRadius: 16
     }
   },
-  {
-    backgroundColor: '#ff3e03',
-    backgroundGradientFrom: '#ff3e03',
-    backgroundGradientTo: '#ff3e03',
-    color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`
-  }
 ]
 
 export default class PinpadStatus extends React.Component {
