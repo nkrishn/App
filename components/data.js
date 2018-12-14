@@ -1,67 +1,66 @@
-// Mock data object used for LineChart and BarChart
-
-const BarCharData = {
-  labels: ['Retail', 'RESTURANT', 'LODGING'],
-  datasets: [{
-    data: [
-      100,
-      200,
-      300,
-    ]
-  }]
+const refund = { 
+  threeDay: 
+    { 
+      lodging: 60, retail: 25, restaurant: 15
+    },
+  oneWeek:
+    {
+      lodging: 40, retail: 50, restaurant: 10
+    },
+  oneMonth:
+    {
+      lodging: 10, retail: 30, restaurant: 60
+    },
+  threeMonth:
+    {
+      lodging: 60, retail: 25, restaurant: 15
+    },
+  oneYear:
+    {
+      lodging: 25, retail: 30, restaurant: 45
+    }
 }
 
-const bardata = [
-  {
-      value: 50,
-      svg: {
-          fill: '#2d6386',
-      },
-  },
-  {
-      value: 10,
-      svg: {
-          fill: '#Fe9200',
-      },
-  },
-  {
-      value: 85,
-      svg: {
-          fill: '#b3d2e5',
-      },
-  },
-]
+const bardata = (button) => {
+  return [
+    {
+        value: refund[button].lodging * 100,
+        svg: {
+            fill: '#2d6386',
+        },
+    },
+    {
+        value: refund[button].retail * 100,
+        svg: {
+            fill: '#Fe9200',
+        },
+    },
+    {
+        value: refund[button].restaurant * 100,
+        svg: {
+            fill: '#b3d2e5',
+        },
+    }
+  ]
+}
 
-const bardata1 = [
-  {
-      value: 85,
-      svg: {
-          fill: '#2d6386',
-      },
+const piedata = (button) => {
+  return [{
+    key: 1,
+    amount: refund[button].lodging,
+    svg: { fill: '#2d6386' },
   },
   {
-      value: 300,
-      svg: {
-          fill: '#Fe9200',
-      },
+    key: 2,
+    amount: refund[button].retail,
+    svg: { fill: '#Fe9200' }
   },
   {
-      value: 10,
-      svg: {
-          fill: '#b3d2e5',
-      },
-  },
-]
-
-const BarCharData1 = {
-  labels: ['Retail', 'RESTURANT', 'LODGING'],
-  datasets: [{
-    data: [
-      550,
-      250,
-      100,
-    ]
-  }]
+    key: 3,
+    amount: refund[button].restaurant,
+    svg: { fill: '#b3d2e5' }
+  }
+  ]
 }
 
 const pinpadData = {
@@ -98,75 +97,4 @@ const pinpadModelData = [
   { name: 'V3', batches: 52, color: 'black', legendFontColor: '#7F7F7F', legendFontSize: 15 },
 ]
 
-
-// Mock data object used for Contribution Graph
-
-const contributionData = [
-  { date: '2016-01-02', count: 1 },
-  { date: '2016-01-03', count: 2 },
-  { date: '2016-01-04', count: 3 },
-  { date: '2016-01-05', count: 4 },
-  { date: '2016-01-06', count: 5 },
-  { date: '2016-01-30', count: 2 },
-  { date: '2016-01-31', count: 3 },
-  { date: '2016-03-01', count: 2 },
-  { date: '2016-04-02', count: 4 },
-  { date: '2016-03-05', count: 2 },
-  { date: '2016-02-30', count: 4 }
-]
-
-// Mock data object for Pie Chart
-
-const pieChartData = [
-  { name: 'LODGING', batches: 50, color: 'rgba(131, 167, 234, 1)', legendFontColor: '#7F7F7F', legendFontSize: 15 },
-  { name: 'RETAIL', batches: 28, color: 'orange', legendFontColor: '#7F7F7F', legendFontSize: 15 },
-  { name: 'RESTURANT', batches: 52, color: 'red', legendFontColor: '#7F7F7F', legendFontSize: 15 },
-]
-
-const pieChartData1 = [
-  { name: 'LODGING', batches: 28, color: 'rgba(131, 167, 234, 1)', legendFontColor: '#7F7F7F', legendFontSize: 15 },
-  { name: 'RETAIL', batches: 52, color: 'orange', legendFontColor: '#7F7F7F', legendFontSize: 15 },
-  { name: 'RESTURANT', batches: 50, color: 'red', legendFontColor: '#7F7F7F', legendFontSize: 15 },
-]
-
-const piedata = [
-  {
-    key: 1,
-    amount: 50,
-    svg: { fill: '#2d6386' },
-  },
-  {
-    key: 2,
-    amount: 100,
-    svg: { fill: '#Fe9200' }
-  },
-  {
-    key: 3,
-    amount: 40,
-    svg: { fill: '#b3d2e5' }
-  }
-]
-
-const piedata1 = [
-{
-  key: 1,
-  amount: 40,
-  svg: { fill: '#2d6386' },
-},
-{
-  key: 2,
-  amount: 50,
-  svg: { fill: '#Fe9200' }
-},
-{
-  key: 3,
-  amount: 100,
-  svg: { fill: '#b3d2e5' }
-}
-]
-
-// Mock data object for Progress
-
-const progressChartData = [0.4, 0.6, 0.8]
-
-export { pinpadData, bardata, piedata, cardData, contributionData, pieChartData, pinpadModelData, piedata1, bardata1 }
+export { pinpadData, bardata, piedata, cardData, pinpadModelData }

@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, ScrollView} from 'react-native'
 import { PieChart, BarChart} from 'react-native-svg-charts'
 import { Text as SVGText } from 'react-native-svg'
 import DateRange from './date-ranges';
-import { bardata, bardata1, piedata, piedata1} from './data'
+import { bardata, piedata } from './data'
 
 class FraudReport extends React.PureComponent {
 
@@ -14,8 +14,8 @@ class FraudReport extends React.PureComponent {
       oneMonth: {},
       threeMonth: {},
       oneYear: {},
-      piedata: piedata,
-      bardata: bardata
+      piedata: piedata('threeDay'),
+      bardata: bardata('threeDay')
     }
   }
 
@@ -28,34 +28,26 @@ class FraudReport extends React.PureComponent {
         threeMonth: {},
         oneYear: {}
     }
-  switch(button) {
-    case 'threeDay':
-      obj.threeDay = color
-      obj.piedata =  piedata
-      obj.bardata = bardata
-      break;
-    case 'oneWeek':
-      obj.oneWeek = color
-      obj.piedata =  piedata1
-      obj.bardata = bardata1
-      break;
-    case 'oneMonth':
-      obj.oneMonth = color
-      obj.piedata =  piedata
-      obj.bardata = bardata
-      break;
-    case 'threeMonth':
-      obj.threeMonth = color
-      obj.piedata =  piedata1
-      obj.bardata = bardata1
-      break;
-      case 'oneYear':
-      obj.oneYear = color
-      obj.piedata =  piedata
-      obj.bardata = bardata
-      break;
-  }
-  this.setState(obj);
+    switch(button) {
+      case 'threeDay':
+        obj.threeDay = color
+        break;
+      case 'oneWeek':
+        obj.oneWeek = color
+        break;
+      case 'oneMonth':
+        obj.oneMonth = color
+        break;
+      case 'threeMonth':
+        obj.threeMonth = color
+        break;
+        case 'oneYear':
+        obj.oneYear = color
+        break;
+    }
+    obj.piedata = piedata(button)
+    obj.bardata = bardata(button)
+    this.setState(obj);
   }
 
   render() {
@@ -73,7 +65,7 @@ class FraudReport extends React.PureComponent {
               alignmentBaseline={ 'middle' }
               textAnchor={ 'middle' }
           >
-              {value.value}
+              {value.value}.00 $
           </SVGText>
         )
       })
@@ -97,11 +89,10 @@ class FraudReport extends React.PureComponent {
             fill={'white'}
             textAnchor={'middle'}
             alignmentBaseline={'middle'}
-            fontSize={24}
-            stroke={'black'}
-            strokeWidth={0.2}
+            fontSize={14}
+            fontWeight={'bold'}
           >
-            {data.amount}
+            {data.amount}%
           </SVGText>
         )
       })
