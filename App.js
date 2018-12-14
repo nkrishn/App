@@ -7,6 +7,7 @@ import { StyleSheet, Text, View, Image,
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import  Dashboard from './components/dashboard';
 import { Dimensions } from "react-native";
+import { Ionicons } from '@expo/vector-icons';
 
 
 class App extends React.Component { 
@@ -57,9 +58,28 @@ const AppNavigator = createStackNavigator(
   {
     Home: {
       screen: App,
+      navigationOptions:{
+        header: null
+      
+      }
     },
     Dashboard: {
       screen: Dashboard,
+      navigationOptions:{
+        headerTitle: (
+          <View style={{flexDirection:'row', flexWrap:'wrap'}}>
+            <Image style={{marginLeft: 5, height: 30, width: 30}} source={require('./assets/ml-small.png')} />
+          <Text style={{marginLeft: 5, color:'#2979EF', fontSize: 18}} >
+            Merchant Link Mobile
+          </Text>
+          </View>
+        ),
+        headerRight: (
+          <View style={{flexDirection:'row', flexWrap:'wrap'}}>
+            <Ionicons style={{margin: 10, fontSize: 35, textAlign: 'left'}} name="ios-menu" size={32} color="green" />
+          </View>
+        )
+      }
     }
   },
   {
