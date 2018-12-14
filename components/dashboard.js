@@ -1,7 +1,6 @@
 import React from 'react'
-import { ScrollView, StatusBar, Dimensions, Text, View, TouchableHighlight, Platform, StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native'
 import { createMaterialTopTabNavigator, createStackNavigator, createAppContainer} from 'react-navigation'
-import WelcomeScreen from './welcome-screen'
 import FraudReport from './fraud-report'
 import PinPadStatus from './pinpad-status'
 import EmvNonemv from './emv-nonemv'
@@ -22,7 +21,7 @@ const AppStackNavigator = createMaterialTopTabNavigator(
 
     }),
     navigationOptions:{
-      tabBarLabel: "Fraud Report"
+      tabBarLabel: "Fraud Report",
     }
   },
 
@@ -38,7 +37,7 @@ const AppStackNavigator = createMaterialTopTabNavigator(
     },
     CardBrand: { screen: CardBrands,
       navigationOptions:{
-        tabBarLabel: "Compare CardBrands",
+        tabBarLabel: "CardBrands",
       }
     },
   },
@@ -52,6 +51,9 @@ const AppStackNavigator = createMaterialTopTabNavigator(
       inactiveTintColor: 'gray',
       indicatorStyle: {
         height: 0
+      },
+      lableStyle:{
+        fontWeight: 400,
       }
     },
   }

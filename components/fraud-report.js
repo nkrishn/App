@@ -61,21 +61,23 @@ class FraudReport extends React.PureComponent {
   render() {
 
     const CUT_OFF = 20
-    const BarLabels = ({ x, y, bandwidth, data }) => (
-        data.map((value, index) => (
-            <SVGText
-                key={ index }
-                x={ x(index) + (bandwidth / 2) }
-                y={ value < CUT_OFF ? y(value) - 10 : y(value) + 15 }
-                fontSize={ 14 }
-                fill={ value >= CUT_OFF ? 'white' : 'black' }
-                alignmentBaseline={ 'middle' }
-                textAnchor={ 'middle' }
-            >
-                {value}
-            </SVGText>
-        ))
-    )
+    const BarLabels = ({ x, y, bandwidth, data }) => {
+      return data.map((value, index) => {
+        return(
+          <SVGText
+              key={ index }
+              x={ x(index) + (bandwidth / 2) }
+              y={ value.value < CUT_OFF ? y(value.value) - 10 : y(value.value) + 15 }
+              fontSize={ 14 }
+              fill={ value.value >= CUT_OFF ? 'white' : 'black' }
+              alignmentBaseline={ 'middle' }
+              textAnchor={ 'middle' }
+          >
+              {value.value}
+          </SVGText>
+        )
+      })
+    }
 
     const labelStyle = {
       color: 'deep blue',
@@ -84,7 +86,6 @@ class FraudReport extends React.PureComponent {
       fontSize: 16
     }
 
-    const PieLegend = ({})
     const Labels = ({ slices, height, width }) => {
       return slices.map((slice, index) => {
         const { labelCentroid, pieCentroid, data } = slice;
@@ -110,7 +111,7 @@ class FraudReport extends React.PureComponent {
         <View style={{flex: 1, flexDirection: 'column' }}>        
           <View style={{flex: 1.8, flexDirection: 'row' }}>
             <View style={{flex: 1, flexDirection: 'column' }}>
-              <Text style={styles.labelStyle}> REFUND BY INDUSTRY </Text>
+              <Text style={styles.labelStyle}> NON-LINKED REFUNDS BY INDUSTRY </Text>
               <PieChart
                 style={{ height: 180 }}
                 valueAccessor={({ item }) => item.amount}
@@ -123,15 +124,15 @@ class FraudReport extends React.PureComponent {
             </View>
           </View>
           <DateRange onChange={this.onDateRangeChange.bind(this)} styleProps={this.state}/> 
-          <Text style={styles.labelStyle}> REFUND AMOUNT PER INDUSTRY </Text>
-          <View style={{flex: 1, flexDirection: 'row'}}>
+          <Text style={styles.labelStyle}> NON-LINKED REFUND AMOUNT</Text>
+          <View style={{flex: 1.5, flexDirection: 'row'}}>
             <BarChart
               style={{ flex: 1 }}
               data={this.state.bardata}
-              svg={{ fill: 'rgba(134, 65, 244, 0.8)' }}
-              contentInset={{ top: 10, bottom: 10 }}
-              spacing={0.2}
               gridMin={0}
+              svg={{ fill: 'rgba(134, 65, 244, 0.8)' }}
+              yAccessor={({ item }) => item.value}
+              contentInset={{ top: 20, bottom: 20 }}
             >
               <BarLabels/>
             </BarChart>
@@ -143,10 +144,10 @@ class FraudReport extends React.PureComponent {
 
 const styles = StyleSheet.create({
   labelStyle: {
-    color: '#4169e1',
     marginVertical: 20,
     textAlign: 'center',
-    fontSize: 16
+    fontSize: 16,
+    fontWeight: 'bold',
   },
   container: {
     flex: 1,

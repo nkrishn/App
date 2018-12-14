@@ -11,9 +11,47 @@ const BarCharData = {
   }]
 }
 
-const bardata = [5, 20, 25]
+const bardata = [
+  {
+      value: 50,
+      svg: {
+          fill: '#2d6386',
+      },
+  },
+  {
+      value: 10,
+      svg: {
+          fill: '#Fe9200',
+      },
+  },
+  {
+      value: 85,
+      svg: {
+          fill: '#b3d2e5',
+      },
+  },
+]
 
-const bardata1 = [25, 20, 5]
+const bardata1 = [
+  {
+      value: 85,
+      svg: {
+          fill: '#2d6386',
+      },
+  },
+  {
+      value: 300,
+      svg: {
+          fill: '#Fe9200',
+      },
+  },
+  {
+      value: 10,
+      svg: {
+          fill: '#b3d2e5',
+      },
+  },
+]
 
 const BarCharData1 = {
   labels: ['Retail', 'RESTURANT', 'LODGING'],
