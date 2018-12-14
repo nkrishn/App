@@ -53,7 +53,7 @@ export default class CardBrands extends React.Component {
                 backgroundColor: chartConfig.backgroundColor
               }}
             >
-              <Text style={labelStyle}> VISA vs AMEX vs DISCOVER vs MASTERCARD TRANSACTIONS</Text>
+              <Text style={labelStyle}> VISA vs AMEX vs DISCOVER vs MASTERCARD</Text>
               <BarChart
                 width={width}
                 height={height}

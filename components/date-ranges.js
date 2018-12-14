@@ -11,7 +11,7 @@ class DateRange extends React.Component {
 
     render() {
         return (
-            <View style={{flex: 0.4, flexDirection: 'row', marginLeft: 25}}>
+            <View style={{flex: 0.25, flexDirection: 'row', marginLeft: 25}}>
                 <View style={{flex: 0.25, flexDirection: 'column' }} >
                     <TouchableHighlight style={[styles.selection, this.props.styleProps.threeDay ]}  onPress={() => { this.props.onChange('threeDay') } }>
                         <Text style={styles.dateFont}>3D</Text>
