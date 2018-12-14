@@ -9,7 +9,7 @@ class FraudReport extends React.PureComponent {
 
   constructor() {
     super();
-    this.state = { threeDay:  { backgroundColor: 'steelblue' },
+    this.state = { threeDay:  { backgroundColor: 'steelblue', color: 'white' },
       oneWeek: {},
       oneMonth: {},
       threeMonth: {},
@@ -20,7 +20,7 @@ class FraudReport extends React.PureComponent {
   }
 
   onDateRangeChange(button) {
-    let color = { backgroundColor: 'steelblue' }
+    let color = { backgroundColor: 'steelblue', color: 'white' }
     let obj = { 
         threeDay:  {},
         oneWeek: {},
@@ -101,8 +101,7 @@ class FraudReport extends React.PureComponent {
     return (
         <View style={{flex: 1, flexDirection: 'column' }}>        
           <View style={{flex: 1.8, flexDirection: 'row' }}>
-            <View style={{flex: 1, flexDirection: 'column' }}>
-              <Text style={styles.labelStyle}> NON-LINKED REFUNDS BY INDUSTRY </Text>
+            <View style={{flex: 1, flexDirection: 'column', marginTop: 25 }}>
               <PieChart
                 style={{ height: 180 }}
                 valueAccessor={({ item }) => item.amount}
@@ -112,6 +111,21 @@ class FraudReport extends React.PureComponent {
               >
                 <Labels/>
               </PieChart>
+            </View>
+            <View style={{flex: 1, flexDirection: 'column' }}>
+              <Text style={styles.labelStyle}> NON-LINKED REFUNDS</Text>
+              <View style={{flex: 0.25, flexDirection: 'row' }}>
+                <Text style={[styles.legend, { backgroundColor: '#2d6386'}]}></Text>
+                <Text>Lodging</Text>
+              </View>
+              <View style={{flex: 0.25, flexDirection: 'row' }}>
+                <Text style={[styles.legend, { backgroundColor: '#Fe9200'}]}></Text>
+                <Text>Retail</Text>
+              </View>
+              <View style={{flex: 0.25, flexDirection: 'row' }}>
+                <Text style={[styles.legend, { backgroundColor: '#b3d2e5'}]}></Text>
+                <Text>Restaurant</Text>
+              </View>
             </View>
           </View>
           <DateRange onChange={this.onDateRangeChange.bind(this)} styleProps={this.state}/> 
@@ -155,6 +169,10 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#333333',
     marginBottom: 5,
+  },
+  legend: {width: 15, 
+    height: 15, marginLeft: 50, marginRight: 5, marginTop: 3, 
+    borderRadius: 4
   },
 });
 

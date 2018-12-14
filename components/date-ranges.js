@@ -13,28 +13,33 @@ class DateRange extends React.Component {
         return (
             <View style={{flex: 0.25, flexDirection: 'row', marginLeft: 25}}>
                 <View style={{flex: 0.25, flexDirection: 'column' }} >
-                    <TouchableHighlight style={[styles.selection, this.props.styleProps.threeDay ]}  onPress={() => { this.props.onChange('threeDay') } }>
-                        <Text style={styles.dateFont}>3D</Text>
+                    <TouchableHighlight style={[styles.selection, { backgroundColor: this.props.styleProps.threeDay.backgroundColor }]}  
+                    onPress={() => { this.props.onChange('threeDay') } }>
+                        <Text style={[styles.dateFont, { color: this.props.styleProps.threeDay.color}]}>3D</Text>
                     </TouchableHighlight>
                 </View>
                 <View style={{flex: 0.25, flexDirection: 'column' }} >
-                    <TouchableHighlight style={[styles.selection, this.props.styleProps.oneWeek]} onPress={() => { this.props.onChange('oneWeek') } }>
-                        <Text style={styles.dateFont}>1W</Text>
+                    <TouchableHighlight style={[styles.selection, { backgroundColor: this.props.styleProps.oneWeek.backgroundColor }]} 
+                    onPress={() => { this.props.onChange('oneWeek') } }>
+                        <Text style={[styles.dateFont, { color: this.props.styleProps.oneWeek.color}]}>1W</Text>
                     </TouchableHighlight>
                 </View>
                 <View style={{flex: 0.25, flexDirection: 'column' }} >
-                    <TouchableHighlight style={[styles.selection, this.props.styleProps.oneMonth ]}  onPress={() => { this.props.onChange('oneMonth') } } >
-                        <Text style={styles.dateFont}>1M</Text>
+                    <TouchableHighlight style={[styles.selection, { backgroundColor: this.props.styleProps.oneMonth.backgroundColor } ]}  
+                      onPress={() => { this.props.onChange('oneMonth') } } >
+                        <Text style={[styles.dateFont, { color: this.props.styleProps.oneMonth.color}]}>1M</Text>
                     </TouchableHighlight>
                 </View>
                 <View style={{flex: 0.25, flexDirection: 'column' }} >
-                    <TouchableHighlight style={[styles.selection, this.props.styleProps.threeMonth ]} onPress={() => { this.props.onChange('threeMonth') } }>
-                        <Text style={styles.dateFont}>3M</Text>
+                    <TouchableHighlight style={[styles.selection, { backgroundColor: this.props.styleProps.threeMonth.backgroundColor } ]} 
+                    onPress={() => { this.props.onChange('threeMonth') } }>
+                        <Text style={[styles.dateFont, { color: this.props.styleProps.threeMonth.color}]}>3M</Text>
                     </TouchableHighlight>
                 </View>
                 <View style={{flex: 0.25, flexDirection: 'column' }} >
-                    <TouchableHighlight style={[styles.selection, this.props.styleProps.oneYear]} onPress={() => { this.props.onChange('oneYear') } }  >
-                        <Text style={styles.dateFont}>1Y</Text>
+                    <TouchableHighlight style={[styles.selection, { backgroundColor: this.props.styleProps.oneYear.backgroundColor } ]} 
+                    onPress={() => { this.props.onChange('oneYear') } }  >
+                        <Text style={[styles.dateFont, { color: this.props.styleProps.oneYear.color}]}>1Y</Text>
                     </TouchableHighlight>
                 </View>
             </View>
