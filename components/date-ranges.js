@@ -3,34 +3,39 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableHighlight } from 'react-native';
 
 // create a component
-class DateRange extends Component {
+class DateRange extends React.Component {
     constructor(props) {
         super(props);
         
     }
 
-    onPressRange(button) {
-       this.props.onChange(button);
-    }
-
     render() {
-        console.log(this.props)
         return (
             <View style={{flex: 1, flexDirection: 'row', marginLeft: 25 }}>
-                <TouchableHighlight style={[styles.selection, this.props.styleProps.threeDay ]}  onPress={this.onPressRange.bind(this, 'threeDay')}  >
-                    <Text>3d</Text>
+                <TouchableHighlight style={{flex: 0.25, flexDirection: 'column' }} onPress={() => { this.props.onChange('threeDay') } }>
+                    <View style={[styles.selection, this.props.styleProps.threeDay ]}  >
+                        <Text style={styles.dateFont}>3D</Text>
+                    </View>
                 </TouchableHighlight>
-                <TouchableHighlight style={[styles.selection,  this.props.styleProps.oneWeek ]} onPress={this.onPressRange.bind(this,'oneWeek')}>
-                    <Text>1w</Text>
+                <TouchableHighlight style={{flex: 0.25, flexDirection: 'column' }} onPress={() => { this.props.onChange('oneWeek') } }>
+                    <View style={[styles.selection, this.props.styleProps.oneWeek]} >
+                        <Text style={styles.dateFont}>1W</Text>
+                    </View>
                 </TouchableHighlight>
-                <TouchableHighlight style={[styles.selection,  this.props.styleProps.oneMonth ]} onPress={this.onPressRange.bind(this,'oneMonth')}>
-                    <Text>1m</Text>
+                <TouchableHighlight style={{flex: 0.25, flexDirection: 'column' }} onPress={() => { this.props.onChange('oneMonth') } }>
+                    <View style={[styles.selection, this.props.styleProps.oneMonth ]}   >
+                        <Text style={styles.dateFont}>1M</Text>
+                    </View>
                 </TouchableHighlight>
-                <TouchableHighlight style={[styles.selection,  this.props.styleProps.threeMonth ]} onPress={this.onPressRange.bind(this,'threeMonth')}>
-                    <Text>3m</Text>
+                <TouchableHighlight style={{flex: 0.25, flexDirection: 'column' }} onPress={() => { this.props.onChange('threeMonth') } }>
+                    <View style={[styles.selection, this.props.styleProps.threeMonth ]} >
+                        <Text style={styles.dateFont}>3M</Text>
+                    </View>
                 </TouchableHighlight>
-                <TouchableHighlight style={[styles.selection,  this.props.styleProps.oneYear ]} onPress={this.onPressRange.bind(this,'oneYear')}>
-                    <Text>1y</Text>
+                <TouchableHighlight style={{flex: 0.25, flexDirection: 'column' }} onPress={() => { this.props.onChange('oneYear') } }>
+                    <View style={[styles.selection, this.props.styleProps.oneYear]}  >
+                        <Text style={styles.dateFont}>1Y</Text>
+                    </View>
                 </TouchableHighlight>
             </View>
         );
@@ -40,9 +45,15 @@ class DateRange extends Component {
 // define your styles
 const styles = StyleSheet.create({
     selection: {
-      width: 25, 
+      width: 35, 
       height: 25, 
-      marginRight: 50
+      borderRadius: 6
+    },
+    dateFont: {
+        fontSize: 14,
+        fontWeight: 'bold',
+        paddingLeft: 8,
+        marginTop: 3
     }
 });
 
