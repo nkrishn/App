@@ -1,31 +1,30 @@
 import React from 'react'
 import { ScrollView, StatusBar, Dimensions, Text, View, TouchableHighlight, Platform, StyleSheet } from 'react-native'
-import ScrollableTabView from 'react-native-scrollable-tab-view'
-import { createBottomTabNavigator, createStackNavigator, createAppContainer} from 'react-navigation'
+import { createMaterialTopTabNavigator, createStackNavigator, createAppContainer} from 'react-navigation'
 import WelcomeScreen from './welcome-screen'
+import FraudReport from './fraud-report'
 import PinPadStatus from './pinpad-status'
 import EmvNonemv from './emv-nonemv'
 import BatchDetails from './batch-details'
 import CardBrands from './card-brands'
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
-
-const AppStackNavigator = createBottomTabNavigator(
+const AppStackNavigator = createMaterialTopTabNavigator(
   {
-    Fraud: createStackNavigator(
+    Fraud: {screen: createStackNavigator(
     {
-      WelcomeScreen: { screen: WelcomeScreen,
+      WelcomeScreen: { screen: FraudReport,
         navigationOptions:{
           header: null,
         }
       },
-      BatchDetails: BatchDetails
+      BatchDetails: { screen: BatchDetails
+      },
+
     }),
+    navigationOptions:{
+      tabBarLabel: "Fraud Report"
+    }
+  },
 
     PinPadStatus: { screen: PinPadStatus,
       navigationOptions:{
@@ -46,17 +45,19 @@ const AppStackNavigator = createBottomTabNavigator(
   {
     tabBarOptions: {
       scrollEnabled: true,
+      style: {
+        backgroundColor: '#f2f2f2',
+      },
       activeTintColor: 'tomato',
       inactiveTintColor: 'gray',
+      indicatorStyle: {
+        height: 0
+      }
     },
   }
 )
 
 export default createAppContainer(AppStackNavigator);
-// const AppStackNavigator =  new StackNavigator({
-//   WelcomeScreen: { screen: WelcomeScreen},
-//   LoginScreen: { screen: LoginScreen }
-// })
 
 const styles = StyleSheet.create({
   container: {

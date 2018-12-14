@@ -11,6 +11,10 @@ const BarCharData = {
   }]
 }
 
+const bardata = [5, 20, 25]
+
+const bardata1 = [25, 20, 5]
+
 const BarCharData1 = {
   labels: ['Retail', 'RESTURANT', 'LODGING'],
   datasets: [{
@@ -87,8 +91,44 @@ const pieChartData1 = [
   { name: 'RESTURANT', batches: 50, color: 'red', legendFontColor: '#7F7F7F', legendFontSize: 15 },
 ]
 
+const piedata = [
+  {
+    key: 1,
+    amount: 50,
+    svg: { fill: '#2d6386' },
+  },
+  {
+    key: 2,
+    amount: 100,
+    svg: { fill: '#Fe9200' }
+  },
+  {
+    key: 3,
+    amount: 40,
+    svg: { fill: '#b3d2e5' }
+  }
+]
+
+const piedata1 = [
+{
+  key: 1,
+  amount: 40,
+  svg: { fill: '#2d6386' },
+},
+{
+  key: 2,
+  amount: 50,
+  svg: { fill: '#Fe9200' }
+},
+{
+  key: 3,
+  amount: 100,
+  svg: { fill: '#b3d2e5' }
+}
+]
+
 // Mock data object for Progress
 
 const progressChartData = [0.4, 0.6, 0.8]
 
-export { pinpadData, BarCharData, cardData, contributionData, pieChartData, progressChartData, pinpadModelData, pieChartData1, BarCharData1 }
+export { pinpadData, bardata, piedata, cardData, contributionData, pieChartData, pinpadModelData, piedata1, bardata1 }
