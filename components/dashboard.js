@@ -6,24 +6,37 @@ import PinPadStatus from './pinpad-status'
 import EmvNonemv from './emv-nonemv'
 import BatchDetails from './batch-details'
 import CardBrands from './card-brands'
+import Location from './location';
+import Site from './site';
 
 const AppStackNavigator = createMaterialTopTabNavigator(
   {
-    Fraud: {screen: createStackNavigator(
-    {
-      WelcomeScreen: { screen: FraudReport,
-        navigationOptions:{
-          header: null,
+    Fraud: {
+      screen: createStackNavigator(
+        {
+          WelcomeScreen: { screen: FraudReport,
+            navigationOptions:{
+              header: null,
+            }
+          },
+          Location: {
+            screen: Location,
+            navigationOptions:{
+              header: null,
+            }
+          },
+          Site: {
+            screen: Site,
+            navigationOptions:{
+              header: null,
+            }
+          }
         }
-      },
-      BatchDetails: { screen: BatchDetails
-      },
-
-    }),
-    navigationOptions:{
-      tabBarLabel: "Fraud Report",
-    }
-  },
+      ),
+      navigationOptions:{
+        tabBarLabel: "Fraud Report",
+      }
+    },
 
     PinPadStatus: { screen: PinPadStatus,
       navigationOptions:{

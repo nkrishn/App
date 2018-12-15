@@ -3,19 +3,40 @@ import { View, Text, StyleSheet, ScrollView} from 'react-native'
 import { PieChart, BarChart} from 'react-native-svg-charts'
 import { Text as SVGText } from 'react-native-svg'
 import DateRange from './date-ranges';
-import { bardata, piedata } from './data'
+import { bardata, piedata } from './data';
 
 class FraudReport extends React.PureComponent {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    this.navigator = this.props.navigation.navigate
     this.state = { threeDay:  { backgroundColor: 'steelblue', color: 'white' },
       oneWeek: {},
       oneMonth: {},
       threeMonth: {},
       oneYear: {},
-      piedata: piedata('threeDay'),
-      bardata: bardata('threeDay')
+      piedata: piedata('threeDay', this.navigator),
+      bardata: bardata('threeDay', this.navigator),
+      iniName: 'timeout1',
+      count: 3
+    }
+  }
+
+  componentDidMount() {
+    this.timerFunc()
+  }
+
+  componentDidUpdate() {
+    this.timerFunc();
+  }
+
+  timerFunc() {
+    if (this.state.count > 0) {
+      this.interval = setTimeout(() => { 
+        this.setState({
+          bardata: bardata(this.state.iniName, this.navigator), 
+          piedata: piedata(this.state.iniName, this.navigator),
+          count: this.state.count - 1, iniName: 'timeout' + this.state.count}) },2000) 
     }
   }
 
@@ -45,8 +66,8 @@ class FraudReport extends React.PureComponent {
         obj.oneYear = color
         break;
     }
-    obj.piedata = piedata(button)
-    obj.bardata = bardata(button)
+    obj.piedata = piedata(button, this.navigator)
+    obj.bardata = bardata(button, this.navigator)
     this.setState(obj);
   }
 
@@ -116,7 +137,7 @@ class FraudReport extends React.PureComponent {
               <Text style={styles.labelStyle}> NON-LINKED REFUNDS</Text>
               <View style={{flex: 0.25, flexDirection: 'row' }}>
                 <Text style={[styles.legend, { backgroundColor: '#2d6386'}]}></Text>
-                <Text>Lodging</Text>
+                <Text >Lodging</Text>
               </View>
               <View style={{flex: 0.25, flexDirection: 'row' }}>
                 <Text style={[styles.legend, { backgroundColor: '#Fe9200'}]}></Text>

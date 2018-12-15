@@ -18,47 +18,56 @@ const refund = {
   oneYear:
     {
       lodging: 25, retail: 30, restaurant: 45
-    }
+    },
+  timeout3: { lodging: 65, retail: 30, restaurant: 5 },
+  timeout1: { lodging: 67, retail: 32, restaurant: 2 },
+  timeout2: { lodging: 55, retail: 35, restaurant: 10 }
 }
 
-const bardata = (button) => {
+const bardata = (button, navigator) => {
   return [
     {
         value: refund[button].lodging * 100,
         svg: {
             fill: '#2d6386',
+            onPress: () => navigator('Location') 
         },
     },
     {
         value: refund[button].retail * 100,
         svg: {
             fill: '#Fe9200',
+            onPress: () => navigator('Location')
         },
     },
     {
         value: refund[button].restaurant * 100,
         svg: {
             fill: '#b3d2e5',
+            onPress: () => navigator('Location')
         },
     }
   ]
 }
 
-const piedata = (button) => {
+const piedata = (button, navigator) => {
   return [{
     key: 1,
     amount: refund[button].lodging,
     svg: { fill: '#2d6386' },
+    onPress: () => navigator('Location')
   },
   {
     key: 2,
     amount: refund[button].retail,
-    svg: { fill: '#Fe9200' }
+    svg: { fill: '#Fe9200' },
+    onPress: () => navigator('Location')
   },
   {
     key: 3,
     amount: refund[button].restaurant,
-    svg: { fill: '#b3d2e5' }
+    svg: { fill: '#b3d2e5' },
+    onPress: () => navigator('Location')
   }
   ]
 }
