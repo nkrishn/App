@@ -1,8 +1,9 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { View, Text as Texter, StyleSheet, ScrollView } from 'react-native';
 import { BarChart, Grid, YAxis } from 'react-native-svg-charts'
 import * as scale from 'd3-scale'
+import { Text } from 'react-native-svg'
 
 // create a component
 class Site extends Component {
@@ -14,7 +15,7 @@ class Site extends Component {
     componentDidMount() {
         setTimeout(() => {
             this.setState({ load: false})
-        }, 1500)
+        }, 1000)
     }
 
 
@@ -31,84 +32,100 @@ class Site extends Component {
             },
             {
                 value: 40,
-                label: 'IHOP23 - City',
+                label: 'IHOP23 - Annapolis',
             },
             {
                 value: 95,
-                label: 'IHOP21 - Wheaton',
+                label: 'IHOP21 - Columbia',
             },
             {
                 value: 85,
-                label: 'IHOP21 - Wheaton',
+                label: 'IHOP21 - Rockville',
             },
             {
                 value: 50,
-                label: 'IHOP21 - Wheaton',
+                label: 'IHOP21 - Cumberland',
             },
             {
                 value: 10,
-                label: 'IHOP21 - Wheaton',
+                label: 'IHOP21 - Clarksberg',
             },
             {
                 value: 40,
-                label: 'IHOP21 - Wheaton',
+                label: 'IHOP21 - Baltimore',
             },
             {
                 value: 95,
-                label: 'IHOP21 - Wheaton',
+                label: 'IHOP21 - Frederick',
             },
             {
                 value: 85,
-                label: 'IHOP21 - Wheaton',
+                label: 'IHOP21 - OceanCity',
             },
             {
                 value: 50,
-                label: 'IHOP21 - Wheaton',
+                label: 'IHOP21 - Lanham',
             },
             {
                 value: 10,
-                label: 'IHOP21 - Wheaton',
+                label: 'IHOP21 - Beltsville',
             },
             {
                 value: 40,
-                label: 'IHOP21 - Wheaton',
+                label: 'IHOP21 - Croftol',
             },
             {
                 value: 95,
-                label: 'IHOP21 - Wheaton',
+                label: 'IHOP21 - Odenton',
             },
             {
                 value: 85,
-                label: 'IHOP21 - Wheaton',
+                label: 'IHOP21 - Gaithersberg',
             },
             {
                 value: 50,
-                label: 'Site1',
+                label: 'IHOP21 - Pikesville',
             },
             {
                 value: 10,
-                label: 'Site1',
+                label: 'IHOP21 - CrazyVille',
             },
             {
                 value: 40,
-                label: 'Site1',
+                label: 'IHOP21 - mobileVille',
             },
             {
                 value: 95,
-                label: 'Site1',
+                label: 'IHOP21 - Techville',
             },
             {
                 value: 85,
-                label: 'Site1',
+                label: 'IHOP22 - Wheaton',
             },
         ]
 
+        const CUT_OFF = 50
+        const Labels = ({  x, y, bandwidth, data }) => (
+            data.map(({value}, index) => (
+                <Text
+                    key={ index }
+                    x={ value > CUT_OFF ? x(0) + 10 : x(value) + 10 }
+                    y={ y(index) + (bandwidth / 2) }
+                    fontSize={ 14 }
+                    fill={ value > CUT_OFF ? 'white' : 'black' }
+                    alignmentBaseline={ 'middle' }
+                >
+                    $ {value}
+                </Text>
+            ))
+        )
+        
         if (this.state.load) {
-            return <Text style={{textAlign: 'center', marginTop: 50}}>Loading....</Text>
+            return  <Texter style={{textAlign: 'center', marginTop: 50}}>Loading....</Texter>
         } else {
         return (
             <ScrollView>
-                <Text style={styles.labelStyle}>LODGING - NON LINKED REFUNDS BY  SITE</Text>
+                
             <View style={{ flexDirection: 'row', height: 700, paddingVertical: 16 }}>
             <YAxis
                 data={data}
@@ -119,16 +136,17 @@ class Site extends Component {
                 formatLabel={(_, index) => data[ index ].label}
             />
             <BarChart
-                style={{ flex: 1, marginLeft: 8 }}
+                style={{ flex: 0.9, marginLeft: 8 }}
                 data={data}
                 horizontal={true}
                 yAccessor={({ item }) => item.value}
-                svg={{ fill: 'rgba(134, 65, 244, 0.8)' }}
+                svg={{ fill: '#f06292' }}
                 contentInset={{ top: 10, bottom: 10 }}
-                spacing={0.2}
+                spacing={0.4}
                 gridMin={0}
             >
                 <Grid direction={Grid.Direction.VERTICAL}/>
+                <Labels/>
             </BarChart>
             </View>
         </ScrollView>

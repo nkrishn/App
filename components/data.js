@@ -30,21 +30,21 @@ const bardata = (button, navigator) => {
         value: refund[button].lodging * 100,
         svg: {
             fill: '#2d6386',
-            onPress: () => navigator('Location') 
+            onPressIn: () => navigator('Location', { name: 'LODGING'}) 
         },
     },
     {
         value: refund[button].retail * 100,
         svg: {
             fill: '#Fe9200',
-            onPress: () => navigator('Location')
+            onPressIn: () => navigator('Location', { name: 'RETAIL'})
         },
     },
     {
         value: refund[button].restaurant * 100,
         svg: {
             fill: '#b3d2e5',
-            onPress: () => navigator('Location')
+            onPressIn: () => navigator('Location', { name: 'RESTAURANT'})
         },
     }
   ]
@@ -52,23 +52,26 @@ const bardata = (button, navigator) => {
 
 const piedata = (button, navigator) => {
   return [{
-    key: 1,
-    amount: refund[button].lodging,
-    svg: { fill: '#2d6386' },
-    onPress: () => navigator('Location')
-  },
-  {
-    key: 2,
-    amount: refund[button].retail,
-    svg: { fill: '#Fe9200' },
-    onPress: () => navigator('Location')
-  },
-  {
-    key: 3,
-    amount: refund[button].restaurant,
-    svg: { fill: '#b3d2e5' },
-    onPress: () => navigator('Location')
-  }
+      key: 1,
+      amount: refund[button].lodging,
+      svg: { fill: '#2d6386' },
+      onPressIn: () => navigator('Location', { name: 'LODGING'}),
+      onPress: () => navigator('Location', { name: 'LODGING'}),
+    },
+    {
+      key: 2,
+      amount: refund[button].retail,
+      svg: { fill: '#Fe9200' },
+      onPressIn: () => navigator('Location', { name: 'RETAIL'}),
+      onPress: () => navigator('Location', { name: 'RETAIL'}),
+    },
+    {
+      key: 3,
+      amount: refund[button].restaurant,
+      svg: { fill: '#b3d2e5' },
+      onPressIn: () => navigator('Location', { name: 'RESTAURANT'}),
+      onPress: () => navigator('Location', { name: 'RESTAURANT'}),
+    }
   ]
 }
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, StyleSheet, ScrollView} from 'react-native'
+import { View, Text, StyleSheet, ScrollView, TouchableHighlight} from 'react-native'
 import { PieChart, BarChart} from 'react-native-svg-charts'
 import { Text as SVGText } from 'react-native-svg'
 import DateRange from './date-ranges';
@@ -22,23 +22,23 @@ class FraudReport extends React.PureComponent {
     }
   }
 
-  componentDidMount() {
-    this.timerFunc()
-  }
+  // componentDidMount() {
+  //   this.timerFunc()
+  // }
 
-  componentDidUpdate() {
-    this.timerFunc();
-  }
+  // componentDidUpdate() {
+  //   this.timerFunc();
+  // }
 
-  timerFunc() {
-    if (this.state.count > 0) {
-      this.interval = setTimeout(() => { 
-        this.setState({
-          bardata: bardata(this.state.iniName, this.navigator), 
-          piedata: piedata(this.state.iniName, this.navigator),
-          count: this.state.count - 1, iniName: 'timeout' + this.state.count}) },2000) 
-    }
-  }
+  // timerFunc() {
+  //   if (this.state.count > 0) {
+  //     this.interval = setTimeout(() => { 
+  //       this.setState({
+  //         bardata: bardata(this.state.iniName, this.navigator), 
+  //         piedata: piedata(this.state.iniName, this.navigator),
+  //         count: this.state.count - 1, iniName: 'timeout' + this.state.count}) },2000) 
+  //   }
+  // }
 
   onDateRangeChange(button) {
     let color = { backgroundColor: 'steelblue', color: 'white' }
@@ -128,7 +128,7 @@ class FraudReport extends React.PureComponent {
                 valueAccessor={({ item }) => item.amount}
                 data={this.state.piedata}
                 spacing={0}
-                outerRadius={'95%'}
+                outerRadius={'100%'}
               >
                 <Labels/>
               </PieChart>
