@@ -4,7 +4,6 @@ import { createMaterialTopTabNavigator, createStackNavigator, createAppContainer
 import FraudReport from './fraud-report'
 import PinPadStatus from './pinpad-status'
 import EmvNonemv from './emv-nonemv'
-import BatchDetails from './batch-details'
 import CardBrands from './card-brands'
 import Location from './location';
 import Site from './site';
