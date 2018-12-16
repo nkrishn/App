@@ -25,6 +25,7 @@ class PinpadStatus extends React.PureComponent {
         svg: { fill: '#EB144C'},
       },
     ]
+    const navigator = { onPress: () => this.props.navigation.navigate('PinpadSite') }
 
     const bardata = [
       {
@@ -33,9 +34,9 @@ class PinpadStatus extends React.PureComponent {
         svg: { fill: '#40bf42' },
       },
       {
-        value: 10,
+        value: 44,
         label: 'PINPAD-DOWN',
-        svg: { fill: '#EB144C' },
+        svg: navigator,
       },
     ]
 
@@ -66,7 +67,7 @@ class PinpadStatus extends React.PureComponent {
             style={{ flex: 0.5 }}
             data={bardata}
             gridMin={0}
-            svg={{ fill: 'rgba(134, 65, 244, 0.8)' }}
+            svg={{ fill: '#EB144C'}}
             yAccessor={({ item }) => item.value}
             contentInset={{ top: 20, bottom: 20 }}
           >
