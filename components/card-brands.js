@@ -1,5 +1,5 @@
 import React from 'react'
-import { ScrollView, View, StatusBar, Dimensions, Text, StyleSheet, Alert } from 'react-native'
+import { ScrollView, View, StatusBar, Dimensions, Text, StyleSheet } from 'react-native'
 import ScrollableTabView from 'react-native-scrollable-tab-view'
 import LineChart from './line-chart'
 import DateRange from './date-ranges';
@@ -284,7 +284,7 @@ let obj = {}
         data: this.state.monthsAmex
       }]
     }
-    console.log(this.state.siteArr)
+
     return (
       <View renderTabBar={this.renderTabBar}>
         {chartConfigs.map(chartConfig => {
