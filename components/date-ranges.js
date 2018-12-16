@@ -1,6 +1,6 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableHighlight } from 'react-native';
+import { View, Text, StyleSheet, TouchableHighlight, Dimensions } from 'react-native';
 
 // create a component
 class DateRange extends React.Component {
@@ -47,11 +47,14 @@ class DateRange extends React.Component {
     }
 }
 
+const deviceWidth = Dimensions.get("window").width;
+const deviceHeight = Dimensions.get("window").height; 
+
 // define your styles
 const styles = StyleSheet.create({
     selection: {
-      width: 35, 
-      height: 25, 
+      width: deviceWidth * 9/100, 
+      height: deviceHeight * 3/100, 
       borderRadius: 6
     },
     dateFont: {
