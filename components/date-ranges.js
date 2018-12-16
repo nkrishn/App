@@ -15,7 +15,7 @@ class DateRange extends React.Component {
                 <View style={{flex: 0.25, flexDirection: 'column' }} >
                     <TouchableHighlight style={[styles.selection, { backgroundColor: this.props.styleProps.threeDay.backgroundColor }]}  
                     onPress={() => { this.props.onChange('threeDay') } }>
-                        <Text style={[styles.dateFont, { color: this.props.styleProps.threeDay.color}]}>3D</Text>
+                        <Text style={[styles.dateFont, { color: this.props.styleProps.threeDay.color}]}>1D</Text>
                     </TouchableHighlight>
                 </View>
                 <View style={{flex: 0.25, flexDirection: 'column' }} >

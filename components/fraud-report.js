@@ -22,24 +22,6 @@ class FraudReport extends React.PureComponent {
     }
   }
 
-  // componentDidMount() {
-  //   this.timerFunc()
-  // }
-
-  // componentDidUpdate() {
-  //   this.timerFunc();
-  // }
-
-  // timerFunc() {
-  //   if (this.state.count > 0) {
-  //     this.interval = setTimeout(() => { 
-  //       this.setState({
-  //         bardata: bardata(this.state.iniName, this.navigator), 
-  //         piedata: piedata(this.state.iniName, this.navigator),
-  //         count: this.state.count - 1, iniName: 'timeout' + this.state.count}) },2000) 
-  //   }
-  // }
-
   onDateRangeChange(button) {
     let color = { backgroundColor: 'steelblue', color: 'white' }
     let obj = { 

@@ -35,15 +35,15 @@ class Site extends Component {
                 label: 'IHOP23 - Annapolis',
             },
             {
-                value: 95,
+                value: 2500,
                 label: 'IHOP21 - Columbia',
             },
             {
-                value: 85,
+                value: 40,
                 label: 'IHOP21 - Rockville',
             },
             {
-                value: 50,
+                value: 20,
                 label: 'IHOP21 - Cumberland',
             },
             {
@@ -59,11 +59,11 @@ class Site extends Component {
                 label: 'IHOP21 - Frederick',
             },
             {
-                value: 85,
+                value: 25,
                 label: 'IHOP21 - OceanCity',
             },
             {
-                value: 50,
+                value: 20,
                 label: 'IHOP21 - Lanham',
             },
             {
@@ -75,7 +75,7 @@ class Site extends Component {
                 label: 'IHOP21 - Croftol',
             },
             {
-                value: 95,
+                value: 45,
                 label: 'IHOP21 - Odenton',
             },
             {
@@ -83,7 +83,7 @@ class Site extends Component {
                 label: 'IHOP21 - Gaithersberg',
             },
             {
-                value: 50,
+                value: 20,
                 label: 'IHOP21 - Pikesville',
             },
             {
@@ -95,11 +95,11 @@ class Site extends Component {
                 label: 'IHOP21 - mobileVille',
             },
             {
-                value: 95,
+                value: 5,
                 label: 'IHOP21 - Techville',
             },
             {
-                value: 85,
+                value: 35,
                 label: 'IHOP22 - Wheaton',
             },
         ]
@@ -125,7 +125,7 @@ class Site extends Component {
         } else {
         return (
             <ScrollView>
-                
+            <Texter style={styles.labelStyle}>{this.props.navigation.state.params.name} - NON LINKED REFUNDS BY  SITE</Texter>            
             <View style={{ flexDirection: 'row', height: 700, paddingVertical: 16 }}>
             <YAxis
                 data={data}
