@@ -37,69 +37,69 @@ class PinpadStatus extends React.PureComponent {
   }
 
   render() {
-    const navigator = { onPress: () => this.props.navigation.navigate('PinpadSite') }
+    const navigator = { onPress: () => this.props.navigation.navigate('PinpadSite'), fill:  '#ff6347'}
 
     const ppdata = [
       {
           value: this.state.iPPUp,
           label: 'Ingenico iPP320',
-          svg: { fill: '#40bf42', onPress: navigator.onPress},
+          svg: { fill: '#2e8b57', onPress: navigator.onPress},
       },
       {
           value: this.state.iPPDown,
           label: '',
-          svg: { fill: 'red', onPress: navigator.onPress },
+          svg: { fill: '#ff6347', onPress: navigator.onPress },
          
       },
       {
           value: 15,
           label: 'Ingenico iSC250',
-          svg: { fill: '#40bf42', onPress: navigator.onPress}
+          svg: { fill: '#2e8b57', onPress: navigator.onPress}
       },
       {
           value: 8,
           label: '',
-          svg: { fill: 'red', onPress: navigator.onPress}
+          svg: { fill: '#ff6347', onPress: navigator.onPress}
       },
       {
         value: 20,
         label: 'Ingenico iPP350',
-        svg: { fill: '#40bf42', onPress: navigator.onPress}
+        svg: { fill: '#2e8b57', onPress: navigator.onPress}
       },
       {
         value: 6,
         label: '',
-        svg: { fill: 'red', onPress: navigator.onPress}
+        svg: { fill: '#ff6347', onPress: navigator.onPress}
       },
       {
         value: 8,
-        label: 'Lane 2000',
-        svg: { fill: '#40bf42', onPress: navigator.onPress},
+        label: 'Move 5000',
+        svg: { fill: '#2e8b57', onPress: navigator.onPress},
     },
     {
         value: 0,
         label: '',
-        svg: { fill: 'red', onPress: navigator.onPress},
+        svg: { fill: '#ff6347', onPress: navigator.onPress},
     },
     {
         value: 12,
         label: 'Verifone Mx920',
-        svg: { fill: '#40bf42', onPress: navigator.onPress}
+        svg: { fill: '#2e8b57', onPress: navigator.onPress}
     },
     {
         value: 3,
         label: '',
-        svg: { fill: 'red', onPress: navigator.onPress}
+        svg: { fill: '#ff6347', onPress: navigator.onPress}
     },
     {
       value: 5,
       label: 'Verifone Mx915',
-      svg: { fill: '#40bf42'}
+      svg: { fill: '#2e8b57'}
     },
     {
       value: 22,
       label: '',
-      svg: { fill: 'red'}
+      svg: { fill: '#ff6347'}
     },
     ]
 
@@ -107,7 +107,7 @@ class PinpadStatus extends React.PureComponent {
       {
         value: this.state.pinpadUp,
         label: 'PINPAD-UP',
-        svg: { fill: '#40bf42' },
+        svg: { fill: '#2e8b57' },
       },
       {
         value: this.state.pinpadDown,
@@ -159,7 +159,7 @@ class PinpadStatus extends React.PureComponent {
             style={{ flex: 0.5 }}
             data={bardata}
             gridMin={0}
-            svg={{ fill: '#EB144C'}}
+            svg={{ fill: '#ff6347'}}
             yAccessor={({ item }) => item.value}
             contentInset={{ top: 20, bottom: 20 }}
           >
