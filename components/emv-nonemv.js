@@ -61,12 +61,12 @@ class EmvNonemv extends React.PureComponent {
       {
         value: this.state.emv,
         label: 'EMV',
-        svg: { fill: '#40bf42' },
+        svg: { fill: '#8884d8' },
       },
       {
         value: this.state.nonEmv,
         label: 'NON-EMV',
-        svg: { fill: '#EB144C' },
+        svg: { fill: '#82ca9d' },
       },
     ]
 
