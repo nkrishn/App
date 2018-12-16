@@ -93,7 +93,7 @@ class EmvNonemv extends React.PureComponent {
       <View style={{flex: 1, flexDirection: 'row' }}>        
         <View style={{flex: 1, flexDirection: 'column', margin: 10, }}>
           <Text style={styles.compStyle}> BEST WESTERN INN</Text>
-          <Text style={styles.labelStyle}>% OF EMV NON-EMV TXNs</Text>
+          <Text style={styles.labelStyle}>EMV Vs NON-EMV TXNs</Text>
           <BarChart
             style={{ flex: 0.75 }}
             data={bardata}
@@ -114,7 +114,7 @@ class EmvNonemv extends React.PureComponent {
           <DateRange onChange={this.onDateRangeChange.bind(this)} 
           styleProps={this.state}
           label={ {one: '1M', two: '3M', three: '6M', four: '9M', five: '1Y'}}/>
-          <Text style={styles.compStyle}> POSITION IN FRANCHISE</Text>
+          <Text style={styles.compStyle}> FRANCHISE RANKING </Text>
           <Text style={{fontWeight: 'bold', color:'green', textAlign: 'center', fontSize: 30 }}>
             {'6 '}
             <Text style={{fontWeight: 'bold', color:'black', fontSize: 16}}>
