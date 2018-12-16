@@ -6,6 +6,7 @@ import PinPadStatus from './pinpad-status'
 import EmvNonemv from './emv-nonemv'
 import CardBrands from './card-brands'
 import Location from './location';
+import PinPadDownSite from './pinpad-down-site'
 import Site from './site';
 
 const AppStackNavigator = createMaterialTopTabNavigator(
@@ -37,7 +38,20 @@ const AppStackNavigator = createMaterialTopTabNavigator(
       }
     },
 
-    PinPadStatus: { screen: PinPadStatus,
+    PinPadStatus: { screen: createStackNavigator(
+      {
+        PinpadScreen: { screen: PinPadStatus,
+          navigationOptions:{
+            header: null,
+          }
+        },
+        PinpadSite: {
+          screen: PinPadDownSite,
+          navigationOptions:{
+            header: null,
+          }
+        }
+      }),
       navigationOptions:{
         tabBarLabel: "PinPad Status",
       }
@@ -56,13 +70,13 @@ const AppStackNavigator = createMaterialTopTabNavigator(
   {
     tabBarOptions: {
       scrollEnabled: true,
-      style: {
-        backgroundColor: '#f2f2f2',
-      },
-      activeTintColor: 'tomato',
-      inactiveTintColor: 'gray',
+      // style: {
+      //   backgroundColor: '#f2f2f2',
+      // },
+      activeTintColor: 'white',
+      inactiveTintColor: 'white',
       indicatorStyle: {
-        height: 0
+        backgroundColor: '#ffffff'
       },
       lableStyle:{
         fontWeight: 400,
