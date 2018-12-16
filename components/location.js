@@ -28,7 +28,7 @@ class Location extends Component {
         const data = [
             {
                 value: 52,
-                label: 'MD',
+                label: 'IL',
                 svg: navigator,
                 style: { fontWeight: 'bold' }
             },
@@ -43,17 +43,17 @@ class Location extends Component {
                 svg: navigator,
             },
             {
-                value: 95,
+                value: 30,
                 label: 'CA',
                 svg: navigator,
             },
             {
-                value: 85,
+                value: 60,
                 label: 'NY',
                 svg: navigator,
             },
             {
-                value: 49,
+                value: 40,
                 label: 'WV',
                 svg: navigator,
             },
@@ -68,12 +68,12 @@ class Location extends Component {
                 svg: navigator,
             },
             {
-                value: 95,
-                label: 'IL',
+                value: 320,
+                label: 'MD',
                 svg: navigator,
             },
             {
-                value: 85,
+                value: 35,
                 label: 'IN',
                 svg: navigator,
             },
@@ -93,12 +93,12 @@ class Location extends Component {
                 svg: navigator,
             },
             {
-                value: 95,
+                value: 30,
                 label: 'NC',
                 svg: navigator,
             },
             {
-                value: 85,
+                value: 18,
                 label: 'SC',
                 svg: navigator,
             },
@@ -118,12 +118,12 @@ class Location extends Component {
                 svg: navigator,
             },
             {
-                value: 95,
+                value: 30,
                 label: 'OR',
                 svg: navigator,
             },
             {
-                value: 85,
+                value: 25,
                 label: 'AR',
                 svg: navigator,
             },
@@ -144,14 +144,14 @@ class Location extends Component {
                 </Text>
             ))
         )
-
+        
         if (this.state.load) {
             return <Texter style={{textAlign: 'center', marginTop: 50}}>Loading....</Texter>
         } else {
         return (
             <ScrollView>
-            <Texter style={styles.labelStyle}>LODGING - NON LINKED REFUNDS BY  STATE</Texter>
-            <View style={{ flexDirection: 'row', height: 700, paddingVertical: 16 }}>
+            <Texter style={styles.labelStyle}>{this.props.navigation.state.params.name} - NON LINKED REFUNDS BY  STATE</Texter>
+            <View style={{ flexDirection: 'row', height: 700, paddingVertical: 16, marginLeft: 10 }}>
                 <YAxis
                     data={data}
                     yAccessor={({ index }) => index}
