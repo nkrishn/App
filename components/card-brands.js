@@ -1,5 +1,5 @@
 import React from 'react'
-import { ScrollView, View, StatusBar, Dimensions, Text, StyleSheet } from 'react-native'
+import { ScrollView, View, StatusBar, Dimensions, Text, StyleSheet, TouchableHighlight } from 'react-native'
 import ScrollableTabView from 'react-native-scrollable-tab-view'
 import LineChart from './line-chart'
 import DateRange from './date-ranges';
@@ -335,15 +335,16 @@ let obj = {}
              'Best Western Inn - College Park',
              'Best Western Inn - Gaithesberg',
              'Best Western Inn - Annapolis'].map((site, index) => {
-               return <Text key={site} 
+               return <TouchableHighlight key={site} 
                style={{ backgroundColor:
                  (( this.state.siteArr.includes(site)) ? '#f6f8fa' :  '#ff7f50'), 
                width: 280, height: 25,
                paddingLeft: 10,
                paddingTop: 3,
-               color: ((this.state.siteArr.includes(site) )? 'black' : 'white'),
                borderRadius: 6, marginTop: 10, marginLeft: 25}}
-               onPress={() => this.changeKey(site)}>{site}</Text>
+               onPress={() => this.changeKey(site)}>
+               <Text style={{color: ((this.state.siteArr.includes(site) )? 'black' : 'white')}}>{site}</Text>
+               </TouchableHighlight>
              })}
              </View>
             </ScrollView>
