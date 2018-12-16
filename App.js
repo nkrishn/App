@@ -13,11 +13,21 @@ import { Ionicons } from '@expo/vector-icons';
 class App extends React.Component { 
   constructor(props) {
     super(props);
-    state = {
-      username   : '',
+    this.state = {
+      username: '',
       password: '',
     }
   }
+
+  validateLogin = () => {
+    if (this.state.username.toLowerCase() == 'admin' && this.state.password.toLowerCase() == 'admin') {
+     this.props.navigation.navigate('Dashboard') 
+     this.setState({ error: false, username: '', password: '' })
+    } else {
+     this.setState({ error: true })
+    }
+  }
+  
 
   render() {
     return (
@@ -42,13 +52,15 @@ class App extends React.Component {
               onChangeText={(password) => this.setState({password})}/>
         </View>
 
-        <TouchableHighlight style={[styles.buttonContainer, styles.loginButton]} onPress={() => this.props.navigation.navigate('Dashboard')}>
+        <TouchableHighlight style={[styles.buttonContainer, styles.loginButton]} onPress={this.validateLogin } >
           <Text style={styles.loginText}>Sign in</Text>
         </TouchableHighlight>
 
         <TouchableHighlight style={[styles.contactbuttonContainer, styles.contactButton]} onPress={() => this.onClickListener('terms')}>
           <Text style={styles.contactText}>Terms & Conditions</Text>
         </TouchableHighlight>
+
+        <Text style={{color: 'red'}}>{ this.state.error ? 'Invalid username or password' : '' }</Text>
       </View>
     );
   }

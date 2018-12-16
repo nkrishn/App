@@ -32,6 +32,10 @@ class PinpadStatus extends React.PureComponent {
     }
   }
 
+  componentWillUnmount() {
+    clearTimeout(this.interval)
+  }
+
   render() {
     const navigator = { onPress: () => this.props.navigation.navigate('PinpadSite') }
 

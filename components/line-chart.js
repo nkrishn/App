@@ -25,7 +25,6 @@ class LineChart extends AbstractChart {
             cy={((height / 4 * 3 * (1 - ((x - Math.min(...dataset.data)) / this.calcScaler(dataset.data)))) + paddingTop)}
             r="4"
             fill={dataset.color}
-            onPressIn={() => Alert.alert(dataset.data[index])}
           />)
       })
     })

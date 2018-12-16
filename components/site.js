@@ -13,11 +13,15 @@ class Site extends Component {
     }
 
     componentDidMount() {
-        setTimeout(() => {
+        this.timer = setTimeout(() => {
             this.setState({ load: false})
         }, 1000)
     }
 
+
+    componentWillUnMount() {
+        clearTimeout(this.timer);
+    }
 
     render() {
         const { navigate } = this.props.navigation;
