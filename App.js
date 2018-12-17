@@ -27,7 +27,6 @@ class App extends React.Component {
      this.setState({ error: true })
     }
   }
-  
 
   render() {
     return (
@@ -73,7 +72,7 @@ const AppNavigator = createStackNavigator(
     },
     Dashboard: {
       screen: Dashboard,
-      navigationOptions:{
+      navigationOptions: ({navigation}) => ({
         headerLeft: null,
         headerLeft: (
           <View style={{flexDirection:'row', flexWrap:'wrap'}}>
@@ -85,10 +84,13 @@ const AppNavigator = createStackNavigator(
         ),
         headerRight: (
           <View style={{flexDirection:'row', flexWrap:'wrap'}}>
-            <Ionicons style={{margin: 10, fontSize: 25, textAlign: 'left'}} name="ios-power" size={25} color="red"  />
+            <Ionicons style={{margin: 10, fontSize: 25, textAlign: 'left'}} 
+            name="ios-power" size={25} color="red" 
+            onPress={() => navigation.navigate('Home') }
+             />
           </View>
         )
-      }
+      })
     }
   },
   {
