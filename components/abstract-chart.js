@@ -9,7 +9,7 @@ import {
 } from 'react-native-svg'
 
 class AbstractChart extends Component {
-  calcScaler = data => (Math.max(...data) - Math.min(...data)) || 1
+  calcScaler = data => Math.max(...data) || 1
 
   renderHorizontalLines = config => {
     const { count, width, height, paddingTop, paddingRight } = config
@@ -41,7 +41,7 @@ class AbstractChart extends Component {
           y={(height * 3 / 4) - ((height - paddingTop) / count * i) + 12}
           fontSize={12}
           fill={'black'}
-        >{count === 1 ? data[0].toFixed(decimalPlaces) : ((this.calcScaler(data) / (count - 1)) * i + Math.min(...data)).toFixed(decimalPlaces)}
+        >{count === 1 ? data[0] : (Math.round((this.calcScaler(data) / (count - 1)) * i) * 100)}
         </Text>
       )
     })
