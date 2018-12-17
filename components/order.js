@@ -41,7 +41,7 @@ class Order extends Component {
                                     <View style={{flex: 0.3, flexDirection: 'row', 
                                     backgroundColor: index % 2 == 0 && index % 3 == 0 && index % 6 == 0 ? 'grey': 'skyblue'}}></View>
                                     <View style={{flex: 0.5, flexDirection: 'row', 
-                                    backgroundColor: index % 2 == 0 ? 'grey': 'skyblue' , borderBottomRightRadius: '50%', borderBottomLeftRadius: '50%'}}></View>
+                                    backgroundColor: index % 2 == 0 ? 'grey': 'skyblue' , borderBottomRightRadius: 20, borderBottomLeftRadius: 20}}></View>
                                 </View>
                                 <View style={{flex: 0.8, flexDirection: 'column', padding: 1, paddingLeft: 8}}>
                                     <View style={{flex: 0.25, flexDirection: 'row'}}><Text>Received</Text></View>
