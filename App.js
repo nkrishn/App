@@ -56,10 +56,6 @@ class App extends React.Component {
           <Text style={styles.loginText}>Sign in</Text>
         </TouchableHighlight>
 
-        <TouchableHighlight style={[styles.contactbuttonContainer, styles.contactButton]} onPress={() => this.onClickListener('terms')}>
-          <Text style={styles.contactText}>Terms & Conditions</Text>
-        </TouchableHighlight>
-
         <Text style={{color: 'red'}}>{ this.state.error ? 'Invalid username or password' : '' }</Text>
       </View>
     );
@@ -78,7 +74,8 @@ const AppNavigator = createStackNavigator(
     Dashboard: {
       screen: Dashboard,
       navigationOptions:{
-        headerTitle: (
+        headerLeft: null,
+        headerLeft: (
           <View style={{flexDirection:'row', flexWrap:'wrap'}}>
             <Image style={{marginLeft: 5, height: 30, width: 30}} source={require('./assets/ml-small.png')} />
           <Text style={{marginLeft: 5, color:'#2979EF', fontSize: 18}} >
@@ -88,7 +85,7 @@ const AppNavigator = createStackNavigator(
         ),
         headerRight: (
           <View style={{flexDirection:'row', flexWrap:'wrap'}}>
-            <Ionicons style={{margin: 10, fontSize: 35, textAlign: 'left'}} name="ios-menu" size={32} color="green" />
+            <Ionicons style={{margin: 10, fontSize: 25, textAlign: 'left'}} name="ios-power" size={25} color="red"  />
           </View>
         )
       }
@@ -130,8 +127,8 @@ const styles = StyleSheet.create({
       flex:1,
   },
   inputIcon:{
-    width : deviceWidth * 7 / 100,
-    height: deviceHeight * 4 / 100,
+    width : deviceWidth * 6 / 100,
+    height: deviceHeight * 3 / 100,
     marginLeft:15,
     justifyContent: 'center'
   },
