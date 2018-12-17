@@ -11,6 +11,7 @@ import Site from './site';
 import  Order from './order';
 import  OrderDetails from './order-details';
 import  Rekey from './rekey';
+import Batch from './batches'
 
 const AppStackNavigator = createMaterialTopTabNavigator(
   {
@@ -69,6 +70,20 @@ const AppStackNavigator = createMaterialTopTabNavigator(
         tabBarLabel: "CardBrands",
       }
     },
+    Batch: {
+      screen: createStackNavigator(
+        {
+          WelcomeScreen: { screen: Batch,
+            navigationOptions:{
+              header: null,
+            }
+          }
+        }
+      ),
+      navigationOptions:{
+        tabBarLabel: "Batches",
+      }
+    },
     Order: { screen: createStackNavigator(
       {
         Order: { screen: Order,
@@ -91,8 +106,8 @@ const AppStackNavigator = createMaterialTopTabNavigator(
       navigationOptions:{
         tabBarLabel: "Rekey Status",
       }
-    }
-  },
+    },
+    },
   {
     tabBarOptions: {
       scrollEnabled: true,

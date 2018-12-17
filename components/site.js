@@ -28,83 +28,83 @@ class Site extends Component {
         const data = [
             {
                 value: 50,
-                label: 'IHOP21 - Wheaton',
+                label: `HYATT 29 - Wheaton`,
             },
             {
                 value: 10,
-                label: 'IHOP22 - Silver Spring',
+                label: `HYATT 22 - Silver Spring`,
             },
             {
                 value: 40,
-                label: 'IHOP23 - Annapolis',
+                label: `HYATT 23 - Annapolis`,
             },
             {
                 value: 2500,
-                label: 'IHOP21 - Columbia',
+                label: `HYATT 39 - Columbia`,
             },
             {
                 value: 40,
-                label: 'IHOP21 - Rockville',
+                label: `HYATT 24 - Rockville`,
             },
             {
                 value: 20,
-                label: 'IHOP21 - Cumberland',
+                label: `HYATT 33 - Cumberland`,
             },
             {
                 value: 10,
-                label: 'IHOP21 - Clarksberg',
+                label: `HYATT 32 - Clarksberg`,
             },
             {
                 value: 40,
-                label: 'IHOP21 - Baltimore',
+                label: `HYATT 21 - Baltimore`,
             },
             {
                 value: 95,
-                label: 'IHOP21 - Frederick',
+                label: `HYATT 19 - Frederick`,
             },
             {
                 value: 25,
-                label: 'IHOP21 - OceanCity',
+                label: `HYATT 34 - OceanCity`,
             },
             {
                 value: 20,
-                label: 'IHOP21 - Lanham',
+                label: `HYATT 49 - Lanham`,
             },
             {
                 value: 10,
-                label: 'IHOP21 - Beltsville',
+                label: `HYATT 43 - Beltsville`,
             },
             {
                 value: 40,
-                label: 'IHOP21 - Croftol',
+                label: `HYATT 35 - Croftol`,
             },
             {
                 value: 45,
-                label: 'IHOP21 - Odenton',
+                label: `HYATT 36 - Odenton`,
             },
             {
                 value: 85,
-                label: 'IHOP21 - Gaithersberg',
+                label: `HYATT 37 - Gaithersberg`,
             },
             {
                 value: 20,
-                label: 'IHOP21 - Pikesville',
+                label: `HYATT 38 - Pikesville`,
             },
             {
                 value: 10,
-                label: 'IHOP21 - CrazyVille',
+                label: `HYATT 44 - CrazyVille`,
             },
             {
                 value: 40,
-                label: 'IHOP21 - mobileVille',
+                label: `HYATT 45 - mobileVille`,
             },
             {
                 value: 5,
-                label: 'IHOP21 - Techville',
+                label: `HYATT 46 - Techville`,
             },
             {
                 value: 35,
-                label: 'IHOP22 - Wheaton',
+                label: `HYATT 47 - Wheaton`,
             },
         ]
 
