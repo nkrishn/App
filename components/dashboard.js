@@ -8,6 +8,9 @@ import CardBrands from './card-brands'
 import Location from './location';
 import PinPadDownSite from './pinpad-down-site'
 import Site from './site';
+import  Order from './order';
+import  OrderDetails from './order-details';
+import  Rekey from './rekey';
 
 const AppStackNavigator = createMaterialTopTabNavigator(
   {
@@ -66,6 +69,29 @@ const AppStackNavigator = createMaterialTopTabNavigator(
         tabBarLabel: "CardBrands",
       }
     },
+    Order: { screen: createStackNavigator(
+      {
+        Order: { screen: Order,
+          navigationOptions:{
+            header: null,
+          }
+        },
+        OrderDetails: {
+          screen: OrderDetails,
+          navigationOptions:{
+            header: null,
+          }
+        },
+      }),
+      navigationOptions:{
+        tabBarLabel: "Orders",
+      } 
+    },
+    Rekey: { screen: Rekey,
+      navigationOptions:{
+        tabBarLabel: "Rekey Status",
+      }
+    }
   },
   {
     tabBarOptions: {
