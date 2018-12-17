@@ -22,10 +22,11 @@ class App extends React.Component {
   validateLogin = () => {
     if (this.state.username.toLowerCase() == 'admin' && this.state.password.toLowerCase() == 'admin') {
      this.props.navigation.navigate('Dashboard') 
-     this.setState({ error: false, username: '', password: '' })
+     this.setState({ error: false })
     } else {
      this.setState({ error: true })
     }
+    
   }
 
   render() {
