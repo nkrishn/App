@@ -26,9 +26,9 @@ class Rekey extends Component {
                 return <TouchableHighlight style={styles.block} key={site} >
                     <View style={{flex: 1, flexDirection: 'row'}}>
                         <View style={{flex: 0.6, flexDirection: 'column'}}>
-                        <View style={{flex: 0.25, flexDirection: 'row'}}><Text style={styles.siteName}>{`Case #${2067872+index}`}</Text></View>
-                        <View style={{flex: 0.25, flexDirection: 'row'}}><Text style={styles.siteName}>{`${site.split('-')[0]} # ${3241+index} - ${site.split('-')[1]} `} </Text></View> 
-                        <View style={{flex: 0.25, flexDirection: 'row'}}><Text style={styles.siteName}>{`Amount: $ ${2000+index*34.25}`}</Text></View>
+                        <View style={{flex: 1, flexDirection: 'row'}}><Text style={[styles.siteName, {paddingTop: 5}]}>{`Case #${2067872+index}`}</Text></View>
+                        <View style={{flex: 1, flexDirection: 'row'}}><Text style={styles.siteName}>{`${site.split('-')[0]} # ${3241+index} - ${site.split('-')[1]} `} </Text></View> 
+                        <View style={{flex: 1, flexDirection: 'row'}}><Text style={styles.siteName}>{`Amount: $ ${2000+index*34.25}`}</Text></View>
                         </View>
                         
                         <View style={{flex: 0.40, flexDirection: 'column'}}>
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
         marginTop: 25,
     },
     siteName: {
-      padding: 10,
+      paddingLeft: 2,
       fontWeight: 'bold'  
     }
 });
